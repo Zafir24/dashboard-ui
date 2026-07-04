@@ -1,5 +1,6 @@
 import type { Meta, StoryObj } from '@storybook/vue3-vite'
 import Icon from '../icon-button/Icon.vue'
+import { Headphones } from '@lucide/vue'
 import Table from './Table.vue'
 
 const meta = {
@@ -23,6 +24,36 @@ type Story = StoryObj<typeof meta>
 
 export const Default: Story = {
   args: {},
+}
+
+export const WithProductIcons: Story = {
+  args: {
+    caption: 'Top Products',
+    headers: ['Product', 'Sold', 'Revenue', 'Change'],
+    rows: [
+      ['Wireless Headphones', '412', '$8,240', '12.5%'],
+      ['Smart Watch', '324', '$6,120', '8.3%'],
+      ['BackPack', '280', '$4,980', '-3.2%'],
+      ['Bluetooth Speaker', '210', '$3,450', '6.7%'],
+    ],
+  },
+  render: (args) => ({
+    components: { Icon, Table, Headphones },
+    setup: () => ({ args }),
+    template: `
+      <Table v-bind="args">
+        <template #cell="{ value, cellIndex }">
+          <span v-if="cellIndex === 0" class="inline-flex items-center gap-2">
+            <Icon size="small" filled="blue">
+              <span aria-hidden="true"><Headphones /></span>
+            </Icon>
+            {{ value }}
+          </span>
+          <span v-else>{{ value }}</span>
+        </template>
+      </Table>
+    `,
+  }),
 }
 
 export const WithStatusIcons: Story = {
