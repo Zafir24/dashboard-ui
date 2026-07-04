@@ -1,0 +1,9 @@
+@import 'tailwindcss';
+
+/* Keep Storybook canvas neutral regardless of OS color scheme */
+html,
+body,
+#storybook-root {
+  background: #ffffff;
+  color: #111827;
+}
