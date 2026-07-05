@@ -1,7 +1,12 @@
 import type { Meta, StoryObj } from '@storybook/vue3-vite'
 import Icon from '../icon-button/Icon.vue'
 import { Headphones } from '@lucide/vue'
+import { Watch } from '@lucide/vue';
 import Table from './Table.vue'
+import { Backpack } from '@lucide/vue';
+import { Speaker } from '@lucide/vue';
+import { MoveUp } from '@lucide/vue';
+import { MoveDown } from '@lucide/vue';
 
 const meta = {
   title: 'Components/Table',
@@ -38,18 +43,45 @@ export const WithProductIcons: Story = {
     ],
   },
   render: (args) => ({
-    components: { Icon, Table, Headphones },
+    components: { Icon, Table, Headphones, Watch, Backpack, Speaker, MoveUp, MoveDown },
     setup: () => ({ args }),
     template: `
       <Table v-bind="args">
-        <template #cell="{ value, cellIndex }">
-          <span v-if="cellIndex === 0" class="inline-flex items-center gap-2">
-            <Icon size="small" filled="blue">
-              <span aria-hidden="true"><Headphones /></span>
-            </Icon>
-            {{ value }}
-          </span>
-          <span v-else>{{ value }}</span>
+          <template #cell="{ value, cellIndex, rowIndex }">
+            <span v-if="cellIndex === 0" class="inline-flex items-center gap-2">
+              <Icon v-if="rowIndex === 0" size="small" filled="blue">
+                <span aria-hidden="true"><Headphones /></span>
+              </Icon>
+              <Icon v-else-if="rowIndex === 1" size="small" filled="blue">
+                <span aria-hidden="true"><Watch /></span>
+              </Icon>
+              <Icon v-else-if="rowIndex === 2" size="small" filled="blue">
+                <span aria-hidden="true"><Backpack /></span>
+              </Icon>
+              <Icon v-else-if="rowIndex === 3" size="small" filled="blue">
+                <span aria-hidden="true"><Speaker /></span>
+              </Icon>
+              {{ value }}
+            </span>
+
+            <span v-else-if="cellIndex === 3" class="inline-flex items-center gap-2">
+              <Icon v-if="rowIndex === 0" size="small" filled="non">
+                <span aria-hidden="true"><MoveUp class="text-green-500"/></span>
+              </Icon>
+              <Icon v-else-if="rowIndex === 1" size="small" filled="non">
+                <span aria-hidden="true"><MoveUp class="text-green-500"/></span>
+              </Icon>
+              <Icon v-else-if="rowIndex === 2" size="small" filled="non">
+                <span aria-hidden="true"><MoveDown class="text-red-500"/></span>
+              </Icon>
+              <Icon v-else-if="rowIndex === 3" size="small" filled="non">
+                <span aria-hidden="true"><MoveUp class="text-green-500"/></span>
+              </Icon>
+              {{ value }}
+            </span>
+            <span v-else>
+              {{ value }}
+            </span>
         </template>
       </Table>
     `,

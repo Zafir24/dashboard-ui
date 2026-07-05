@@ -36,6 +36,7 @@ export const tableRowVariants = cva([
   'border-gray-100',
   'transition-colors',
   'hover:bg-gray-50',
+  'select-none',
 ])
 
 export const tableCellVariants = cva(['px-4', 'py-3', 'align-middle'])

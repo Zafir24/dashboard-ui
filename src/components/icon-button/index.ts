@@ -22,6 +22,8 @@ export const iconVariants = cva(
         purple: 'border bg-purple-500/10 border-purple-500 text-purple-500',
         green: 'border bg-green-500/10 border-green-500 text-green-500',
         yellow: 'border bg-yellow-500/10 border-yellow-500 text-yellow-500',
+        up: 'border bg-green-500/10 border-green-500 text-green-500',
+        down: 'border bg-red-500/10 border-red-500 text-red-500',
         non: '!rounded-full text-gray-600',
       },
 
