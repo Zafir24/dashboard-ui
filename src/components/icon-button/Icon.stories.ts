@@ -4,7 +4,6 @@ import { ShoppingCart } from '@lucide/vue'
 import { ChartPie } from '@lucide/vue'
 import { UsersRound } from '@lucide/vue'
 import { CirclePoundSterling } from '@lucide/vue'
-
 import Icon from './Icon.vue'
 
 const meta = {
