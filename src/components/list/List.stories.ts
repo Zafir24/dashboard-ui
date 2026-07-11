@@ -79,24 +79,26 @@ export const Clickable: Story = {
 
 export const Expanded = {
   args: {
-    expanded: true,
+    expanded: false,
   },
   render: (args) => ({
-    components: { List, Icon, Star },
+    components: { List, Icon, House },
     setup() {
       return { args }
     },
     template: `
       <List v-bind="args">
         <template #start>
-          <Icon filled="yellow" :clickable="false" size="small"><Star fill="yellow" class="h-4 w-4" /></Icon>
+          <Icon filled="purple" :clickable="false" size="small"><House class="h-4 w-4 text-purple" /></Icon>
         </template>
         <template #default>
           <p class="text-sm font-semibold">Home</p>
-          <span class="text-xs text-gray-500">Go to dashboard</span>
+        </template>
+        <template #expanded>
+        <span>Go to dashboard</span>
         </template>
         <template #end>
-          <p >2m ago</p>
+          <p>2m ago</p>
         </template>
       </List>
     `,

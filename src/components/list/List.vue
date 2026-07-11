@@ -28,12 +28,12 @@ const listClasses = computed(() => [
       <li >
         <slot />
       </li>
-      <li v-if="props.expanded">
+      <li v-if="expanded" class="text-xs text-gray-500">
         <slot name="expanded" />
       </li>
     </ul>
     <li v-if="$slots.end" class="pl-2">
-      <slot class="text-gray-500 text-sm font-bold" name="end" />
+      <slot class="text-red-500 text-sm font-bold" name="end" />
     </li>
   </ul>
 </template>
