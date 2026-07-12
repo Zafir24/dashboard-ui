@@ -26,14 +26,14 @@ export const buttonVariants = cva(
   {
     variants: {
       variant: {
-        primary: ['text-white', 'bg-blue-600', 'hover:bg-blue-700', 'active:bg-blue-800'],
+        primary: ['text-white', 'bg-purple-600', 'hover:bg-purple-700', 'active:bg-purple-800'],
         outline: [
           'bg-transparent',
           'border',
-          'border-blue-600',
-          'text-blue-600',
-          'hover:bg-blue-700/10',
-          'active:bg-blue-700/20',
+          'border-purple-600',
+          'text-purple-600',
+          'hover:bg-purple-700/10',
+          'active:bg-purple-700/20',
         ],
         error: 'bg-red-500 hover:bg-red-600 active:bg-red-700 text-white',
       },

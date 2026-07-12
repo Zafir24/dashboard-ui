@@ -17,7 +17,7 @@ withDefaults(
 </script>
 
 <template>
-  <div class="rounded-xl border border-gray-200 bg-white p-4 shadow-sm">
+  <div>
     <VueApexCharts :type="type" :height="height" :options="options" :series="series" />
   </div>
 </template>
