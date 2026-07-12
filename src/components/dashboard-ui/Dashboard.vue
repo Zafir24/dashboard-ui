@@ -183,8 +183,8 @@ const teamRows = [
 
 <template>
   <div>
-    <div class="flex flex-row gap-4">
-      <div class="sticky top-0 flex h-screen w-60 flex-col gap-4 border-r border-gray-300 pr-4 pt-0 shadow-lg">
+    <div class="min-h-screen">
+      <div class="fixed top-0 left-0 z-20 flex h-screen w-60 flex-col gap-4 overflow-y-auto border-r border-gray-300 bg-white pr-4 pt-0 pl-0 pr-0 pt-5 shadow-lg">
         <List :clickable="true">
             <template #start>
               <Icon filled="non" :clickable="true" size="small"><House class="h-4 w-4" /></Icon>
@@ -248,7 +248,7 @@ const teamRows = [
             </template>
           </List>
       </div>
-      <div class="flex flex-col w-full gap-4">
+      <div class="ml-60 flex flex-col gap-4 p-4">
         <div
         data-slot="header text"
         class="flex items-center justify-between gap-3">
