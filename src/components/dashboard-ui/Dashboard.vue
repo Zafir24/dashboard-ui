@@ -26,8 +26,7 @@ import { Headphones } from '@lucide/vue';
 import { Watch } from '@lucide/vue';
 import { Backpack } from '@lucide/vue';
 import { Speaker } from '@lucide/vue';
-import { MoveUp } from '@lucide/vue';
-import { MoveDown } from '@lucide/vue';
+import { ArrowUp, ArrowDown } from '@lucide/vue'
 import { UserRound } from '@lucide/vue';
 import { PackagePlus } from '@lucide/vue';
 import { Star } from '@lucide/vue';
@@ -182,12 +181,12 @@ const teamRows = [
 </script>
 
 <template>
-  <div>
+  <div class="bg-white">
     <div class="min-h-screen">
-      <div class="fixed top-0 left-0 z-20 flex h-screen w-60 flex-col gap-4 overflow-y-auto border-r border-gray-300 bg-white pr-4 pt-0 pl-0 pr-0 pt-5 shadow-lg">
-        <List :clickable="true">
+      <div class="fixed top-0 left-0 z-20 flex h-screen w-60 flex-col gap-4 overflow-y-auto border-r border-gray-300 bg-white pr-3 pl-3 pt-0 pl-0 pr-0 pt-5 shadow-lg">
+        <List :clickable="true" :active="true">
             <template #start>
-              <Icon filled="non" :clickable="true" size="small"><House class="h-4 w-4" /></Icon>
+              <Icon filled="non" :clickable="false" size="small"><House class="h-4 w-4" /></Icon>
             </template>
             <template #default>
               <p class="text-sm font-semibold">Dashboard</p>
@@ -454,10 +453,10 @@ const teamRows = [
                 </span>
                 <span v-else-if="cellIndex === 3" class="inline-flex items-center gap-2">
                   <Icon v-if="rowIndex === 2" size="small" filled="non">
-                    <span aria-hidden="true"><MoveDown class="text-red-500" /></span>
+                    <span aria-hidden="true"><ArrowDown class="text-red-500" /></span>
                   </Icon>
                   <Icon v-else size="small" filled="non">
-                    <span aria-hidden="true"><MoveUp class="text-green-500" /></span>
+                    <span aria-hidden="true"><ArrowUp class="text-green-500" /></span>
                   </Icon>
                   {{ value }}
                 </span>

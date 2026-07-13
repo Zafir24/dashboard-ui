@@ -5,16 +5,19 @@ const props = withDefaults(
   defineProps<{
     clickable?: boolean
     expanded?: boolean
+    active?: boolean
   }>(),
   {
     clickable: false,
+    active: false,
   },
 )
 
 const listClasses = computed(() => [
   'flex w-full flex-row items-center gap-4 rounded-md px-2 py-1 transition-colors',
+  props.active ? 'bg-purple-100 text-purple-700 [&_div]:text-purple-700 [&_svg]:text-purple-700' : '',
   props.clickable
-    ? 'cursor-pointer select-none hover:bg-purple-50 active:bg-purple-100'
+    ? 'cursor-pointer select-none hover:bg-purple-50 active:bg-purple-100 active:text-purple-700 active:[&_div]:text-purple-700 active:[&_svg]:text-purple-700'
     : 'cursor-default',
 ])
 </script>
@@ -32,8 +35,8 @@ const listClasses = computed(() => [
         <slot name="expanded" />
       </li>
     </ul>
-    <li v-if="$slots.end" class="pl-2">
-      <slot class="text-red-500 text-sm font-bold" name="end" />
+    <li v-if="$slots.end" class="pl-2 text-xs text-bold">
+      <slot class="" name="end" />
     </li>
   </ul>
 </template>
