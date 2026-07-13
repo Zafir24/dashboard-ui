@@ -31,6 +31,7 @@ import { UserRound } from '@lucide/vue';
 import { PackagePlus } from '@lucide/vue';
 import { Star } from '@lucide/vue';
 import { Undo2 } from '@lucide/vue';
+import projectLogo from '../../../vue-dash.png'
 const revenueSeries = [
   {
     name: 'Revenue',
@@ -184,6 +185,9 @@ const teamRows = [
   <div class="bg-white">
     <div class="flex min-h-screen gap-4">
       <div class="sticky top-0 z-20 flex h-screen w-60 shrink-0 flex-col gap-4 overflow-y-auto border-r border-gray-300 bg-white pt-5 shadow-lg">
+        <div class="px-4 pb-3">
+          <img :src="projectLogo" alt="Vue Dash logo" class="mx-auto w-full h-auto object-contain" />
+        </div>
         <List :clickable="true" :active="true">
             <template #start>
               <Icon filled="non" :clickable="false" size="small"><House class="h-4 w-4" /></Icon>
@@ -247,7 +251,8 @@ const teamRows = [
             </template>
           </List>
       </div>
-      <div class="flex min-w-0 flex-1 flex-col gap-4 p-4">
+
+      <div class="flex min-w-0 flex-1 flex-col gap-4 p-4 pt-10">
         <div
         data-slot="header text"
         class="flex items-center justify-between gap-3">
