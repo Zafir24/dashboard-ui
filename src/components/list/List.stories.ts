@@ -77,7 +77,7 @@ export const Clickable: Story = {
   }),
 }
 
-export const Expanded = {
+export const Expanded: Story = {
   args: {
     expanded: false,
   },
