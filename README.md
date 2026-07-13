@@ -1,67 +1,144 @@
-# dashboard-ui
+# Dashboard UI
 
-This template should help get you started developing with Vue 3 in Vite.
+A modern, component-driven analytics dashboard built with Vue 3, TypeScript, Tailwind CSS, and ApexCharts.
 
-## Recommended IDE Setup
+This project is designed for both developer experience (Storybook + reusable UI components) and real-world deployment (subpath hosting like `/Dashboard-UI/`).
 
-[VS Code](https://code.visualstudio.com/) + [Vue (Official)](https://marketplace.visualstudio.com/items?itemName=Vue.volar) (and disable Vetur).
+## Features
 
-## Recommended Browser Setup
+- Reusable UI component library (buttons, lists, cards, table, menu, avatar, input)
+- Data visualization with ApexCharts
+- Responsive dashboard layout with sticky sidebar navigation
+- Storybook setup for component development and documentation
+- Production-ready Vite build configured for subpath deployment
 
-- Chromium-based browsers (Chrome, Edge, Brave, etc.):
-  - [Vue.js devtools](https://chromewebstore.google.com/detail/vuejs-devtools/nhdogjmejiglipccpnnnanhbledajbpd)
-  - [Turn on Custom Object Formatter in Chrome DevTools](http://bit.ly/object-formatters)
-- Firefox:
-  - [Vue.js devtools](https://addons.mozilla.org/en-US/firefox/addon/vue-js-devtools/)
-  - [Turn on Custom Object Formatter in Firefox DevTools](https://fxdx.dev/firefox-devtools-custom-object-formatters/)
+## Tech Stack
 
-## Type Support for `.vue` Imports in TS
+- Vue 3
+- TypeScript
+- Vite
+- Tailwind CSS
+- Storybook
+- ApexCharts (`vue3-apexcharts`)
+- Reka UI
 
-TypeScript cannot handle type information for `.vue` imports by default, so we replace the `tsc` CLI with `vue-tsc` for type checking. In editors, we need [Volar](https://marketplace.visualstudio.com/items?itemName=Vue.volar) to make the TypeScript language service aware of `.vue` types.
+## Getting Started
 
-## Customize configuration
+### Prerequisites
 
-See [Vite Configuration Reference](https://vite.dev/config/).
+- Node.js `^22.18.0` or `>=24.12.0`
+- npm
 
-## Project Setup
+### Install Dependencies
 
-```sh
+```bash
 npm install
 ```
 
-### Compile and Hot-Reload for Development
+### Start Development Server
 
-```sh
+```bash
 npm run dev
 ```
 
-### Type-Check, Compile and Minify for Production
+### Build for Production
 
-```sh
+```bash
 npm run build
 ```
 
-### Run End-to-End Tests with [Playwright](https://playwright.dev)
+## Available Scripts
 
-```sh
-# Install browsers for the first run
-npx playwright install
+- `npm run dev` - Start Vite dev server
+- `npm run build` - Type-check and build production assets
+- `npm run preview` - Preview production build locally
+- `npm run lint` - Run configured linters
+- `npm run test:e2e` - Run Playwright end-to-end tests
+- `npm run storybook` - Start Storybook locally
+- `npm run build-storybook` - Build Storybook static files
 
-# When testing on CI, must build the project first
+## Project Structure
+
+```text
+src/
+  components/
+    dashboard-ui/
+      Dashboard.vue
+    avatar/
+    button/
+    card/
+    chart/
+    input/
+    list/
+    menu/
+    table/
+  router/
+  assets/
+```
+
+## Deployment
+
+### Deploy Dashboard Under `/Dashboard-UI/`
+
+This project is configured with:
+
+- `base: '/Dashboard-UI/'` in `vite.config.ts`
+
+Build and upload:
+
+```bash
 npm run build
-
-# Runs the end-to-end tests
-npm run test:e2e
-# Runs the tests only on Chromium
-npm run test:e2e -- --project=chromium
-# Runs the tests of a specific file
-npm run test:e2e -- tests/example.spec.ts
-# Runs the tests in debug mode
-npm run test:e2e -- --debug
 ```
 
-### Lint with [ESLint](https://eslint.org/)
+Upload the contents of `dist/` into your hosting directory:
 
-```sh
-npm run lint
+```text
+public_html/Dashboard-UI/
 ```
+
+Final URL example:
+
+```text
+https://www.example.com/Dashboard-UI/
+```
+
+### SPA Rewrite (Apache / cPanel / FastHosts)
+
+Create `public_html/Dashboard-UI/.htaccess`:
+
+```apacheconf
+RewriteEngine On
+RewriteBase /Dashboard-UI/
+RewriteRule ^index\.html$ - [L]
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteRule . /Dashboard-UI/index.html [L]
+```
+
+## Storybook Publishing
+
+Build Storybook:
+
+```bash
+npm run build-storybook
+```
+
+Upload `storybook-static/` contents to something like:
+
+```text
+public_html/storybook/
+```
+
+Then access:
+
+```text
+https://www.example.com/storybook/
+```
+
+## Notes
+
+- Build logs may show `INVALID_ANNOTATION` warnings from dependencies. These are non-fatal and do not block deployment.
+
+## License
+
+Use this project as a portfolio/demo base. Add your preferred license if you plan to open-source it publicly.
