@@ -139,7 +139,3 @@ https://www.example.com/storybook/
 ## Notes
 
 - Build logs may show `INVALID_ANNOTATION` warnings from dependencies. These are non-fatal and do not block deployment.
-
-## License
-
-Use this project as a portfolio/demo base. Add your preferred license if you plan to open-source it publicly.
