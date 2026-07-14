@@ -1,6 +1,6 @@
 # Dashboard UI
 
-A modern, component-driven analytics dashboard built with Vue 3, TypeScript, Tailwind CSS, and ApexCharts.
+A modern, component-driven analytics dashboard built with VueJs, TypeScript, Tailwind CSS, and ApexCharts.
 
 This project is designed for both developer experience (Storybook + reusable UI components) and real-world deployment (subpath hosting like `/Dashboard-UI/`).
 
