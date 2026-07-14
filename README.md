@@ -1,6 +1,6 @@
 # Dashboard UI
 
-A modern, component-driven analytics dashboard built with Vue 3, TypeScript, Tailwind CSS, and ApexCharts.
+A modern, component-driven analytics dashboard built with VueJs, TypeScript, Tailwind CSS, and ApexCharts.
 
 This project is designed for both developer experience (Storybook + reusable UI components) and real-world deployment (subpath hosting like `/Dashboard-UI/`).
 
@@ -25,6 +25,7 @@ This project is designed for both developer experience (Storybook + reusable UI 
 - Storybook
 - ApexCharts (`vue3-apexcharts`)
 - Reka UI
+- Class Variance Authority (cva) 
 
 ## Getting Started
 
@@ -163,7 +164,3 @@ https://www.example.com/storybook/
 ## Notes
 
 - Build logs may show `INVALID_ANNOTATION` warnings from dependencies. These are non-fatal and do not block deployment.
-
-## License
-
-Use this project as a portfolio/demo base. Add your preferred license if you plan to open-source it publicly.
