@@ -21,6 +21,7 @@ This project is designed for both developer experience (Storybook + reusable UI 
 - Storybook
 - ApexCharts (`vue3-apexcharts`)
 - Reka UI
+- Class Variance Authority (cva) 
 
 ## Getting Started
 
