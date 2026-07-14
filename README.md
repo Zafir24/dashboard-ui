@@ -9,6 +9,10 @@ This project is designed for both developer experience (Storybook + reusable UI 
 - Reusable UI component library (buttons, lists, cards, table, menu, avatar, input)
 - Data visualization with ApexCharts
 - Responsive dashboard layout with sticky sidebar navigation
+- Login page with username-only entry flow
+- Lightweight auth store (`authStore`) using `localStorage`
+- Redirect flow: Login -> Dashboard
+- Logout from dashboard profile menu -> Login
 - Storybook setup for component development and documentation
 - Production-ready Vite build configured for subpath deployment
 
@@ -62,6 +66,9 @@ npm run build
 ```text
 src/
   components/
+    Login/
+      Login.vue
+      Login.stories.ts
     dashboard-ui/
       Dashboard.vue
     avatar/
@@ -73,8 +80,26 @@ src/
     menu/
     table/
   router/
+    index.ts
+  stores/
+    authStore.ts
   assets/
 ```
+
+## App Routes
+
+- `/` -> redirects to `/login`
+- `/login` -> Login page
+- `/dashboard` -> Dashboard page
+
+## Login and Store Flow
+
+- User enters a name on the Login page and clicks Continue.
+- Continue button is disabled when the input is empty.
+- Username is saved in `localStorage` through `src/stores/authStore.ts`.
+- User is redirected to `/dashboard` after successful submit.
+- Dashboard reads the stored username and shows it in the welcome message.
+- Logout menu action clears the stored username and routes back to `/login`.
 
 ## Deployment
 

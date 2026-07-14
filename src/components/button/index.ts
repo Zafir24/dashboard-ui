@@ -35,7 +35,7 @@ export const buttonVariants = cva(
           'hover:bg-purple-700/10',
           'active:bg-purple-700/20',
         ],
-        disabled: 'text-gray-400 bg-gray-200 cursor-not-allowed',
+        disabled: 'text-gray-400 bg-gray-200 !cursor-not-allowed',
         error: 'bg-red-500 hover:bg-red-600 active:bg-red-700 text-white',
       },
     },
