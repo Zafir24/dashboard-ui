@@ -1,17 +1,23 @@
 import { createRouter, createWebHistory } from 'vue-router'
 import Dashboard from '../components/dashboard-ui/Dashboard.vue'
+import Login from '../components/Login/Login.vue'
 
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
   routes: [
     {
       path: '/',
-      name: 'dashboard',
-      component: Dashboard,
+      redirect: '/login',
+    },
+    {
+      path: '/login',
+      name: 'login',
+      component: Login,
     },
     {
       path: '/dashboard',
-      redirect: '/',
+      name: 'dashboard',
+      component: Dashboard,
     },
     {
       path: '/about',

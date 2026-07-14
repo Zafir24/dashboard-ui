@@ -1,4 +1,6 @@
 <script setup lang="ts">
+import { computed } from 'vue'
+import { useRouter } from 'vue-router'
 import List from '../list/List.vue'
 import Icon from '../icon-button/Icon.vue'
 import Input from '../input/Input.vue'
@@ -32,6 +34,17 @@ import { PackagePlus } from '@lucide/vue';
 import { Star } from '@lucide/vue';
 import { Undo2 } from '@lucide/vue';
 import projectLogo from '../../../vue-dash.png'
+import { useAuthStore } from '../../stores/authStore'
+
+const authStore = useAuthStore()
+const router = useRouter()
+const displayName = computed(() => authStore.currentUsername.value.trim() || 'User')
+
+const handleLogout = async () => {
+  authStore.clearUsername()
+  await router.push({ name: 'login' })
+}
+
 const revenueSeries = [
   {
     name: 'Revenue',
@@ -258,7 +271,7 @@ const teamRows = [
         class="flex items-center justify-between gap-3">
           <div class="space-y-1 flex-1">
           <h1 class="block text-3xl font-semibold">Dashboard</h1>
-          <p class="block text-xs text-gray-600">Welcome back, User! Here's what's happening today.</p>
+          <p class="block text-md text-gray-600">Welcome back, {{ displayName }}! Here's what's happening today.</p>
           </div>
           <div
           data-slot="header actions"
@@ -274,7 +287,7 @@ const teamRows = [
           <MenuContent>
             <MenuItem>Profile</MenuItem>
             <MenuItem>Settings</MenuItem>
-            <MenuItem>Logout</MenuItem>
+            <MenuItem @click="handleLogout">Logout</MenuItem>
           </MenuContent>
         </MenuPortal>
       </MenuRoot>

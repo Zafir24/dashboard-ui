@@ -17,7 +17,7 @@ const listClasses = computed(() => [
   'flex w-full flex-row items-center gap-4 rounded-md px-2 py-1 transition-colors',
   props.active ? 'bg-purple-100 text-purple-700 [&_div]:text-purple-700 [&_svg]:text-purple-700' : '',
   props.clickable
-    ? 'cursor-pointer select-none hover:bg-purple-50 active:bg-purple-100 active:text-purple-700 active:[&_div]:text-purple-700 active:[&_svg]:text-purple-700'
+    ? 'cursor-pointer select-none hover:bg-purple-50 active:bg-purple-100'
     : 'cursor-default',
 ])
 </script>
